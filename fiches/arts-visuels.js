@@ -20,32 +20,51 @@ const objFicheArtsVisuels = {
 
   // Méthode
   initialiser: function () {
-    this.refPrenom.innerText = objJSONepigraphes.e0001.PRENOM;
-    this.refNom.innerText = objJSONepigraphes.e0001.NOM;
-    this.refImagePersonnage.src = `../images/${objJSONepigraphes.e0001.SUFFIXE_IMAGES}.jpg`;
-    this.refTitreImage.innerText = objJSONepigraphes.e0001.IMAGE.TITRE;
-    this.refCreditImage.innerText = objJSONepigraphes.e0001.IMAGE.CREDIT;
-    this.refNotesBiographiques.innerHTML = `<p>${objJSONepigraphes.e0001.BIOGRAPHIE}</p>`;
+    let intIdFicheCourante = obtenirValeurUrlParam("id");
+    console.log(intIdFicheCourante);
+
+    this.refPrenom.innerText = objJSONepigraphes[intIdFicheCourante].PRENOM;
+    this.refNom.innerText = objJSONepigraphes[intIdFicheCourante].NOM;
+
+    //mis en commentaire pour ne pas avoir derreur dans la console
+    // this.refImagePersonnage.src = `../images/${objJSONepigraphes[intIdFicheCourante].SUFFIXE_IMAGES}.jpg`;
+
+    this.refTitreImage.innerText = objJSONepigraphes[intIdFicheCourante].IMAGE.TITRE;
+    this.refCreditImage.innerText = objJSONepigraphes[intIdFicheCourante].IMAGE.CREDIT;
+    this.refNotesBiographiques.innerHTML = `<p>${objJSONepigraphes[intIdFicheCourante].BIOGRAPHIE}</p>`;
 
     //Pas certain de savoir quoi faire avec la map sans avoir compris comment L'API fonctionne
-    // this.refGoogleMap.src = `../images/${objJSONepigraphes.e0001.}`
+    // this.refGoogleMap.src = `../images/${objJSONepigraphes[intIdFicheCourante].}`
 
-    this.refArrondissement.innerText = objJSONepigraphes.e0001.ARRONDISSEMENT;
-    this.refQuartier.innerText = objJSONepigraphes.e0001.QUARTIER;
-    this.refAdresse.innerText = objJSONepigraphes.e0001.ADRESSE;
+    this.refArrondissement.innerText = objJSONepigraphes[intIdFicheCourante].ARRONDISSEMENT;
+    this.refQuartier.innerText = objJSONepigraphes[intIdFicheCourante].QUARTIER;
+    this.refAdresse.innerText = objJSONepigraphes[intIdFicheCourante].ADRESSE;
 
     //pour changer la photo de lepigraphe, meme genre de ligne de code que ceci
-    // this.refImagePersonnage.src = `../images/${objJSONepigraphes.e0001.SUFFIXE_IMAGES}.jpg`;
+    // this.refImagePersonnage.src = `../images/${objJSONepigraphes[intIdFicheCourante].SUFFIXE_IMAGES}.jpg`;
 
-    this.refTranscript.innerText = objJSONepigraphes.e0001.PLAQUE_TRANSCRIPTION;
-    this.refDescriptionAudio.innerText = objJSONepigraphes.e0001.AUDIO.DESCRIPTION;
-    this.refUrlAudio.src = objJSONepigraphes.e0001.AUDIO.URL;
+    this.refTranscript.innerText = objJSONepigraphes[intIdFicheCourante].PLAQUE_TRANSCRIPTION;
+    this.refDescriptionAudio.innerText = objJSONepigraphes[intIdFicheCourante].AUDIO.DESCRIPTION;
+    this.refUrlAudio.src = objJSONepigraphes[intIdFicheCourante].AUDIO.URL;
+    this.refUrlAudio.load();
 
-    this.refAudioPreambule.innerText = objJSONepigraphes.e0001.PRENOM + objJSONepigraphes.e0001.NOM;
-    this.refAudioTranscription.innerText = objJSONepigraphes.e0001.AUDIO.TRANSCRIPTION;
+    this.refAudioPreambule.innerText = objJSONepigraphes[intIdFicheCourante].PRENOM + objJSONepigraphes[intIdFicheCourante].NOM;
+    this.refAudioTranscription.innerText = objJSONepigraphes[intIdFicheCourante].AUDIO.TRANSCRIPTION;
 
-    this.refAudioCredit.innerText = objJSONepigraphes.e0001.AUDIO.CREDIT;
+    this.refAudioCredit.innerText = objJSONepigraphes[intIdFicheCourante].AUDIO.CREDIT;
   },
 };
+
+/**
+ * Obtenir la valeur d'un des parametres (QueryParam) dans l'URL
+ * @param {string} strParam - Nom du parametre a rechercher dans l'URL
+ * @returns {string} - Valeur correspondant au parametre
+ *                   - Retourne null lorsqu'aucune valeur n'est trouvee
+ */
+
+function obtenirValeurUrlParam(strParam) {
+  return new URLSearchParams(window.location.search).get(strParam);
+}
+// DOC MDN: https://developer.mozilla.org/en-US/docs/Web/API/URLSeachParams
 
 objFicheArtsVisuels.initialiser();
