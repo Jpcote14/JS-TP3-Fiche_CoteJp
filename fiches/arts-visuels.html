@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edmund Alleyn - Chasse aux épigraphes</title>
+    <script defer src="../js/epigraphes.js"></script>
+    <script defer src="arts-visuels.js"></script>
+</head>
+
+<body>
+    <noscript>
+        <p>Pour apprécier pleinement ce site, votre navigateur doit disposer de JavaScript, ce qui ne semble pas être le
+            cas
+            présentement. Alternativement, vous pouvez consulter le site de la Ville de Québec pour découvrir les
+            épigraphes
+            historiques :
+            <a
+                href="https://www.ville.quebec.qc.ca/citoyens/patrimoine/personnalites/plaques-ici-vecut/index.aspx">ville.quebec.qc.ca/citoyens/patrimoine/personnalites/plaques-ici-vecut/</a>
+        </p>
+    </noscript>
+    <header>
+        <p class="titre">Chasse aux épigraphes</p>
+    </header>
+    <main>
+        <section>
+            <h1><span id="prenom">Bob</span><span id="nom">Ross</span></h1>
+            <p>Art Visuels</p>
+            <figure>
+                <img src="" alt=" " id="url_image">
+                <figcaption>
+                    <span id="titre_image">Bob Ross dans son atelier</span> <br>
+                    ©<span id="credit_image">Henri Hill</span>
+                </figcaption>
+            </figure>
+            <h2>Notes biographiques</h2>
+            <div id="notes_biographiques">
+                <p>
+                    Bob ross est un peintre, la suite du texte devrait etre ici
+                </p>
+            </div>
+        </section>
+        <section>
+            <h2>Localisation</h2>
+            <figure>
+                <img src="../images/zoomgooglemap_alleyn.png"
+                    alt="Plan rapproché de l'emplacement sur la carte géographique" id="carteZoom">
+                <figcaption>
+                    <h3>Arrondissement:
+                        <span id="arrondissement">Quelque part</span>
+                    </h3>
+                    <h3>Quartier:
+                        <span id="quartier">Un endroit quelquonque</span>
+                    </h3>
+                    <h3>Adresse:
+                        <span id="adresse">742 terrace evergreen</span>
+                    </h3>
+                </figcaption>
+            </figure>
+        </section>
+        <section>
+            <h2>Plaque commémorative</h2>
+            <figure>
+                <img src="../images/plaque_alleyn.png" alt="Épigraphe de Edmund Alleyn" id="url_plaque">
+                <figcaption id="transcript">Ici vecut bob ross
+                </figcaption>
+            </figure>
+        </section>
+        <section>
+            <h2>Capsule sonore</h2>
+            <p id="audio_desc"></p>
+            <audio controls id="audio_url">
+                <source src="http://www.ville.quebec.qc.ca/sons/epigraphes/epigraphes_alleyn.mp3" type="audio/mpeg" />
+                Votre navigateur ne propose pas de lecteur audio.
+                Consultez la transcription textuelle qui suit.
+            </audio>
+            <h3>Transcription textuelle</h3>
+            <p id="audio_preambule"></p>
+            <p id="audio_transcription">Transcription dun message audio</p>
+            <h3>Crédits de la narration</h3>
+            <p id="audio_credit">Allo audio credit</p>
+        </section>
+    </main>
+    <aside role="complementary">
+        <!-- Si l’utilisateur n’a pas débuté une chasse -->
+        <div id="zoneAucuneChasseEnCours">
+            <h2>Soumettre cette fiche comme élément trouvé</h2>
+            <p><span id="statusChasse">Aucune chasse en cours. Si vous désirez débuter une chasse, visitez la page <a
+                        href="../chasse/index.html">Chasse</a>.</span></p>
+        </div>
+
+        <!-- Si une chasse est en cours -->
+        <div id="zoneChasseEnCours" hidden>
+            <form>
+                <fieldset>
+                    <legend>
+                        <h2>Soumettre cette fiche comme élément trouvé <span id="progressionChasse">(0 indice trouvé sur
+                                3)</span></h2>
+                    </legend>
+                    <ul>
+                        <li>
+                            <input type="radio" name="formChasse" value="personnage" id="personnage"
+                                class="screen-reader-only" required>
+                            <label for="personnage">Personnage</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="formChasse" value="lieu" id="lieu" class="screen-reader-only">
+                            <label for="lieu">Lieu</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="formChasse" value="objet" id="objet" class="screen-reader-only">
+                            <label for="objet">Objet</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <p id="message"></p>
+                <p>
+                    <button id="btnSoumettre">Soumettre</button>
+                </p>
+            </form>
+            <ul>
+                <li>
+                    <a href="../chasse/index.html">Vérifier votre progression de la chasse</a>
+                </li>
+                <li>
+                    <a href="../carte/index.html">Poursuivre la chasse </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+</body>
+
+</html>
