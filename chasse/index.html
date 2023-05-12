@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chasse aux épigraphes</title>
+    <script defer src="../js/epigraphes.js"></script>
+    <script defer src="chasse.js"></script>
+</head>
+
+<body>
+    <noscript>
+        <p>Pour apprécier pleinement ce site, votre navigateur doit disposer de JavaScript, ce qui ne semble pas être le
+            cas
+            présentement. Alternativement, vous pouvez consulter le site de la Ville de Québec pour découvrir les
+            épigraphes
+            historiques :
+            <a
+                href="https://www.ville.quebec.qc.ca/citoyens/patrimoine/personnalites/plaques-ici-vecut/index.aspx">ville.quebec.qc.ca/citoyens/patrimoine/personnalites/plaques-ici-vecut/</a>
+        </p>
+    </noscript>
+    <header role="banner">
+        <p class="titre">Chasse aux épigraphes</p>
+    </header>
+    <main>
+        <h1>Chasse</h1>
+        <!-- État initiale: aucune chasse démarrée -->
+        <p id="zoneAucuneEnquete" hidden>Aucune chasse en cours</p>
+
+        <!-- État chasse en cours (compléter cette partie au cours 2 du TP) -->
+        <div id="zoneChasseEnCours">
+            <h2>Chasse à compléter</h2>
+            <p>
+                <span id="segmentPersonnage">Un artiste peintre avant-gardiste</span>
+                <span id="segmentObjet"> a lu le roman «Les Anciens canadiens» </span>
+                <span id="segmentLieu"> à la maison Kerhulu.e</span>
+            </p>
+
+            <button type="button" id="btnDemarrerNouvelleChasse">Voulez-vous démarrer une nouvelle chasse?</button>
+        </div>
+        <!-- État chasse complétée -->
+        <h2 id="zoneChasseCompletee" hidden>Bravo! Votre avez terminé la chasse!</h2>
+
+        <button type="button" id="btnDebuterChasse">Commencer la chasse</button>
+    </main>
+
+</body>
+
+</html>
