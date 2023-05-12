@@ -44,8 +44,7 @@
         <section>
             <h2>Localisation</h2>
             <figure>
-                <img src="../images/zoomgooglemap_alleyn.png"
-                    alt="Plan rapproché de l'emplacement sur la carte géographique" id="carteZoom">
+                <img src="" alt="Plan rapproché de l'emplacement sur la carte géographique" id="carteZoom">
                 <figcaption>
                     <h3>Arrondissement:
                         <span id="arrondissement">Quelque part</span>
@@ -62,7 +61,7 @@
         <section>
             <h2>Plaque commémorative</h2>
             <figure>
-                <img src="../images/plaque_alleyn.png" alt="Épigraphe de Edmund Alleyn" id="url_plaque">
+                <img src="" alt="Épigraphe de Edmund Alleyn" id="url_plaque">
                 <figcaption id="transcript">Ici vecut bob ross
                 </figcaption>
             </figure>
@@ -84,14 +83,14 @@
     </main>
     <aside role="complementary">
         <!-- Si l’utilisateur n’a pas débuté une chasse -->
-        <div id="zoneAucuneChasseEnCours">
-            <h2>Soumettre cette fiche comme élément trouvé</h2>
+        <div id="zoneAuncuneChasseEnCours" hidden>
+            <h2>Soumettre cette fiche comme pièce à conviction</h2>
             <p><span id="statusChasse">Aucune chasse en cours. Si vous désirez débuter une chasse, visitez la page <a
                         href="../chasse/index.html">Chasse</a>.</span></p>
         </div>
 
         <!-- Si une chasse est en cours -->
-        <div id="zoneChasseEnCours" hidden>
+        <div id="zoneChasseEnCours">
             <form>
                 <fieldset>
                     <legend>
@@ -116,16 +115,16 @@
                 </fieldset>
                 <p id="message"></p>
                 <p>
-                    <button id="btnSoumettre">Soumettre</button>
+                    <button id="btnSoumettre" type="button">Soumettre</button>
                 </p>
             </form>
             <ul>
                 <li>
-                    <a href="../chasse/index.html">Vérifier votre progression de la chasse</a>
+                    <a href="../chasse/index.html"><button>Vérifier votre progression de la chasse</button></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="../carte/index.html">Poursuivre la chasse </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </aside>

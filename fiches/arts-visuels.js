@@ -21,7 +21,7 @@ const objFicheArtsVisuels = {
   // Méthode
   initialiser: function () {
     let intIdFicheCourante = obtenirValeurUrlParam("id");
-    console.log(intIdFicheCourante);
+    // console.log(intIdFicheCourante);
 
     this.refPrenom.innerText = objJSONepigraphes[intIdFicheCourante].PRENOM;
     this.refNom.innerText = objJSONepigraphes[intIdFicheCourante].NOM;
@@ -67,4 +67,33 @@ function obtenirValeurUrlParam(strParam) {
 }
 // DOC MDN: https://developer.mozilla.org/en-US/docs/Web/API/URLSeachParams
 
+function soumettreReponse() {
+  //variable qui contient le nom de la page ouverte (ex: e0003)
+  let intIdFicheCourante = obtenirValeurUrlParam("id");
+
+  //console.log qui permet de voir si une chasse est active ou pas
+  //chase inactive = undefined
+
+  const btnRadio = document.querySelector('input[name="formChasse"]:checked');
+  const btnRadioChecked = btnRadio.id;
+
+  console.log(intIdFicheCourante);
+  console.log(`localStorage.id_` + btnRadioChecked);
+
+  if (localStorage.id_personnage === undefined) {
+    document.getElementById("message").innerText = "Aucune chasse n'a ete debute";
+  } else {
+    if (btnRadio === null) {
+      document.getElementById("message").innerText = "Choisir un element";
+    } else {
+      if (intIdFicheCourante === localStorage.getItem("id_" + btnRadioChecked)) {
+        document.getElementById("message").innerText = "Bravo c'est la bonne reponse!";
+      } else {
+        document.getElementById("message").innerText = "Ce n'est pas la bonne reponse";
+      }
+    }
+  }
+}
+
+document.getElementById("btnSoumettre").addEventListener("click", soumettreReponse);
 objFicheArtsVisuels.initialiser();
