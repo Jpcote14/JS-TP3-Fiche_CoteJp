@@ -42,7 +42,7 @@ const objCarte = {
     // dans l'objet objJSONepigraphes
     for (let strIdEpigraphe in objJSONepigraphes) {
       const objEpigrapheCourant = objJSONepigraphes[strIdEpigraphe];
-      console.log(strIdEpigraphe);
+      //   console.log(strIdEpigraphe);
       const strGabaritContenuInfobulle = `<div class="infobulle">
 				<div class="image"><img width="150" src="../images/fiches/${strIdEpigraphe}.jpg"/></div>
 				<div class="titre">${objEpigrapheCourant.PRENOM} ${objEpigrapheCourant.NOM}</div>
@@ -50,11 +50,14 @@ const objCarte = {
 				<a class="btn" href="../fiches/arts-visuels.html?id=${strIdEpigraphe}&titre=${objEpigrapheCourant.PRENOM}-${objEpigrapheCourant.NOM}">Consulter la fiche de ${objEpigrapheCourant.PRENOM} ${objEpigrapheCourant.NOM}</a>
 			</div>`;
 
-      console.log(strGabaritContenuInfobulle);
+      //   console.log(strGabaritContenuInfobulle);
 
       const objInfobulle = new google.maps.InfoWindow({
         content: strGabaritContenuInfobulle,
       });
+
+      couleurBase = "landmark-orchid";
+      couleurVisite = "landmark-navy";
 
       const objMarqueur = new google.maps.Marker({
         position: new google.maps.LatLng(objEpigrapheCourant.LATITUDE, objEpigrapheCourant.LONGITUDE),
@@ -63,6 +66,19 @@ const objCarte = {
         icon: `${this.strUrlImages}marqueurs/landmark-orchid.svg`,
         infowindow: objInfobulle,
       });
+
+      // Changer la couleur du marqueur en fonction de la visite de la page
+      let aEteVisite = localStorage.getItem(strIdEpigraphe);
+      console.log(aEteVisite);
+      //   console.log(strIdEpigraphe);
+
+      if (aEteVisite != "true") {
+        objMarqueur.setIcon(`${this.strUrlImages}marqueurs/${couleurBase}.svg`);
+      } else {
+        objMarqueur.setIcon(`${this.strUrlImages}marqueurs/${couleurVisite}.svg`);
+      }
+
+      objMarqueur.setIcon(objMarqueur.icon);
 
       // Ajout de l'écouteur d'événements click qui lancera
       // la fermeture de toutes les infobulles

@@ -95,5 +95,11 @@ function soumettreReponse() {
   }
 }
 
+function enregistrerVisite() {
+  let intIdFicheCourante = obtenirValeurUrlParam("id");
+  localStorage.setItem(intIdFicheCourante, true);
+}
+
 document.getElementById("btnSoumettre").addEventListener("click", soumettreReponse);
 objFicheArtsVisuels.initialiser();
+enregistrerVisite();
